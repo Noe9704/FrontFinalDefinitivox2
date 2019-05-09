@@ -1,0 +1,162 @@
+#logoLiga{
+    height: 400px;
+    width: 400px;
+    margin: 0px;
+    margin-top: -120px;
+}
+
+body{
+    background-color: #EEE9E8;
+    font-family: verdana;
+    font-size: 15px;
+}
+
+#menu{
+    margin: 0px;
+    padding: 0px;
+    margin-top: -120px;
+    list-style: none;
+    /*background-color: gray;*/
+    background-color: #072146;
+    overflow: hidden;
+    cursor: pointer;
+    color: #EEE9E8;
+}
+
+#menu > li{
+    float: left;
+    padding: 10px;
+    margin: 5px;
+}
+
+#menu > li:hover{
+    background-color: #ffffff;
+}
+
+#logIn{
+    margin-right: auto;
+    justify-content: center;
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    margin-top: -50px;
+    /*margin-left: 100px;
+    padding-left: 520px;*/
+    
+}
+
+#hlogin{
+    text-align: center;
+}
+
+.inLI{
+    width: 200px;
+    height: 20px;
+}
+
+#hlogin{
+    margin: 20px;
+    padding: 0px;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.error{
+    color: rgb(156, 41, 41);
+}
+
+.hidden{
+    display: none;
+}
+
+#field{
+    width: 200px;
+    height: 100px;
+    margin: 50px;
+    padding: 100px;
+    margin-left: 550px;
+    margin-top: -3px;
+}
+
+#Registro{
+    margin-right: auto;
+    justify-content: center;
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    margin-top: -50px;
+    margin-left: 150px;
+    /*margin-left: 100px;
+    padding-left: 520px;*/
+}
+
+#fieldReg{
+    width: 600px;
+    height: 400px;
+    margin: 50px;
+    padding: 100px;
+    margin-left: 350px;
+}
+
+.selected{
+    background-color: rgb(26, 26, 122);
+    /*background-color: #383636;
+    background-color: #ffffff;*/
+}
+
+iframe{
+    margin-left: 350px;
+}
+
+#info{
+    background-color: #072146;
+    color: #EEE9E8;
+    height: 100px;
+}
+
+.foot{
+    font-family: 'Times New Roman';
+    text-align: center;
+}
+
+#adminLog{
+    
+}
+
+#prueba{
+    width: 400px;
+}
+
+#equipo{
+    margin-left: -140px;
+}
+
+#equipo1{
+    margin-left: 380px;
+}
+
+#equipo2{
+    margin-left: 900px;
+}
+
+#tit{
+    text-align: center;
+}
+
+#titl{
+    font: 10px;
+}
+
+#imagen{
+    margin-left: -200px;
+    margin-right: 300px;
+    margin-bottom: 100px;
+}
+
+#equi{
+    margin-left: 200PX;
+}
+ #titequipo{
+     margin-top: -100px;
+ }
+
