@@ -5,10 +5,13 @@ var jumb = $('#jumb')
 var img = $('#img')
 var info = $('#info')
 var conta = $('#cont')
+var url_string = window.location.href
+var url = new URL(url_string);
+var id = url.searchParams.get("id");
 
 $.ajax({
     type: "GET",
-    url: 'http://localhost:3000/consultar/equipos/',
+    url: 'http://localhost:3000/consultar/equipos/'+id,
     //url: 'http://localhost:3000/consultar/jugadores',
     crossDomain: true,
     dataType: "json",
@@ -17,11 +20,11 @@ $.ajax({
         let new_html = ""
         let new_html2 = ""
         let new_html3= ""
-        var nombreEquipo = data[0].nombre
+        var nombreEquipo = data.nombre
 
-        new_html += `<h1 id="titequipo">${data[0].nombre}</h1>`
-        new_html2 += `<td><h2>Titulos de Liga: ${data[0].titulosliga}</h2><br><h2>Titulos de Internacionales: ${data[0].titulosinter}</h2></td>`
-        new_html3 += `<td><img width="250" height="250" src="${data[0].imagen}"></td>`
+        new_html += `<h1 id="titequipo">${data.nombre}</h1>`
+        new_html2 += `<td><h2>Titulos de Liga: ${data.titulosliga}</h2><br><h2>Titulos de Internacionales: ${data.titulosinter}</h2></td>`
+        new_html3 += `<td><img width="250" height="250" src="${data.imagen}"></td>`
 
         jumb.append(new_html);
         jumb.append(new_html3);

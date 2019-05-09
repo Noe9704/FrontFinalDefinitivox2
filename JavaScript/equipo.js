@@ -1,7 +1,8 @@
 var container = $('#container')
-var equipo = $('#equipo')
+var equipo = $('#Equipo')
 var imagen = $('.imagen')
 var jumb = $('#jumb')
+var imagen = $('#imagen')
 
 $.ajax({
     type: "GET",
@@ -31,15 +32,11 @@ $.ajax({
                 cont = 1
             }*/
             new_html += `<br>`
-            new_html2 += `<span id="equi"><a href="./PorEquipo.html"><img id="imagen" width="250" height="250" src="${data[i].imagen}"></a></span>`
+            new_html2 += `<span class="cont" id="${data[i]._id}"><a id="pointer"><img width="250" height="250" src="${data[i].imagen}"></a></span>`
 
+            /*var id = data[0]._id
+            console.log(id)*/
 
-            /*$.ajax({
-                type: "GET",
-                url: 'http://localhost:3000/consultar/equipos/',
-                crossDomain: true,
-                dataType: "json",
-            })*/
             /*if(cont == 1){
                 new_html2 += `<a href="./PorEquipo.html"><span id="tit">${data[i].nombre}</span><img id="imagen" width="250" height="250" src="${data[i].imagen}"></a>`
                 //container.append(new_html2);
@@ -55,8 +52,25 @@ $.ajax({
             }*/
             
         }
+        /*$.ajax({
+            type: "GET",
+            url: 'http://localhost:3000/consultar/equipos/'+id,
+            crossDomain: true,
+            dataType: "json",
+
+            success: function(data){
+                let equi = ""
+                equi += `<img id="imagen" width="250" height="250" src="${data.nombre}">`
+            }
+        })*/
         container.append(new_html2);
+        //equipo.append(equi)
         
         //container.append(new_html2);
     }
-})
+}).done(function(response){
+    $('.cont').click(function(event){
+    var id = event.currentTarget.id;
+    window.location = ("./PorEquipo.html?id="+id);
+    });
+});
