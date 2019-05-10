@@ -1,3 +1,7 @@
+
+
+//------------------------------JUGADORES---------------------
+///EDITAR JUGADORES
 var numero = $('#numeroJugador');
 var equipo = $('#equipoJugador');
 var id = $('#idJugador');
@@ -34,10 +38,11 @@ $('#buscar').click(function(){
 	});
 });
 
+//BORRAR JUGADORES
 var idBorrar = $('#idJugadorBorrar')
 
 $('#borrar').click(function(){
-	console.log("hola")
+	//console.log("hola")
 	//console.log(datos)
 	$.ajax({
 		//url : 'http://localhost:3000/jugador' + $(buscartext).val(),
@@ -48,19 +53,22 @@ $('#borrar').click(function(){
 		contentType:'application/json',
 		//contentType: "application/json; charset=utf-8",
 		success: function(data){
-			location.reload(),
+			alertify.success("Jugador borrado con exito");
+			//slocation.reload(),
+
 			console.log("Entra")
 
 			clearTextEliminar();
 		},
 		error:function(error){
+			alertify.error('El jugador no se ha podido eliminar');
 			console.log("falla")
 
 		}
 	});
 });
 
-
+//AGREGAR JUGADORES
 var nombreJugador = $('#nombreJugador');
 var apellidoJugador = $('#apellidoJugador');
 var equipoJugador = $('#equipoJugadorAct');
@@ -106,6 +114,114 @@ $('#agregar').click(function(){
 	});
 });
 
+
+
+
+///----------------------------------------EQUIPOS----------------------
+
+//EDITAR EQUIPOS--------------------------------------------------
+
+var nuevoNombreEquipo = $('#nuevoNombreEquipo');
+var titulosNuevoLiga = $('#titulosNuevosLiga');
+var titulosNuevosInternacionales = $('#titulosNuevosInternacionales');
+var idEquipos = $('#idEquipos');
+
+$('#guardarCambioEquipo').click(function(){
+	//console.log("hola")
+	var datos = {
+		nombre: nuevoNombreEquipo.val(), 
+		titulosliga: titulosNuevoLiga.val(),
+		titulosinter: titulosNuevosInternacionales.val()	
+	}
+	console.log(datos)
+	$.ajax({
+		type : 'PATCH',
+		url : 'http://localhost:3000/editar/equipos/' + idEquipos.val(),
+		crossDomain: true,
+		//dataType: 'json',
+		contentType:'application/json',
+		//contentType: "application/json; charset=utf-8",
+		data: JSON.stringify({
+					nombre: nuevoNombreEquipo.val(),
+					titulosliga: titulosNuevoLiga.val(),
+					titulosinter: titulosNuevosInternacionales.val()
+				}),
+		success: function(data){
+			location.reload(),
+			console.log("Entra")
+			clearTextEditarEquipos();
+
+			//clearText();
+		},
+		error:function(error){
+			console.log("falla")
+
+		}
+	});
+});
+
+
+
+//AGREGAR EQUIPOS--------------------------------------------------
+
+
+var nombreEquipo = $('#nombreEquipo');
+var titulosLiga = $('#titulosLiga');
+var titulosInter = $('#titulosInter');
+var fundacion = $('#fundacion');
+var imagenEquipo = $('#imagenEquipo');
+
+$('#guardarNuevoEquipo').click(function(){
+	var datos = {
+		nombre: nombreEquipo.val(),
+		titulosliga: titulosLiga.val(),
+		titulosinter: titulosInter.val(),
+		fundacion:fundacion.val(),
+		imagen:imagenEquipo.val()
+	}
+	console.log(datos);
+	$.ajax({
+		//url : 'http://localhost:3000/jugador' + $(buscartext).val(),
+		type : 'POST',
+		url : 'http://localhost:3000/editar/equipos', //+ $('#buscartext').val(),
+		crossDomain: true,
+		//dataType: 'json',
+		contentType:'application/json',
+		//contentType: "application/json; charset=utf-8",
+		data: JSON.stringify({
+				nombre: nombreEquipo.val(),
+				titulosliga: titulosLiga.val(),
+				titulosinter: titulosInter.val(),
+				fundacion: fundacion.val(),
+				imagen:imagenEquipo.val()}),
+		success: function(data){
+			location.reload(),
+			console.log("Entra")
+			clearTextAgregarEquipos()
+			
+		},
+		error:function(error){
+			console.log("falla")
+
+		}
+	});
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-----------------------------------------FUNCIONES----------------------------------------
 function clearText()  
 {
     document.getElementById('numeroJugador').value = "";
@@ -126,4 +242,19 @@ function clearTextAgregar(){
     document.getElementById('numActJugador').value = "";
     document.getElementById('posJugador').value = "";
     document.getElementById('linkJugador').value = "";
+}
+
+function clearTextEditarEquipos(){
+	document.getElementById('nuevoNombreEquipo').value = "";
+    document.getElementById('titulosNuevosLiga').value = "";
+    document.getElementById('titulosNuevosInternacionales').value = "";
+    document.getElementById('idEquipos').value = "";
+}
+
+function clearTextAgregarEquipos(){
+	document.getElementById('nombreEquipo').value = "";
+    document.getElementById('titulosLiga').value = "";
+    document.getElementById('titulosInter').value = "";
+    document.getElementById('fundacion').value = "";
+    document.getElementById('imagenEquipo').value = "";
 }

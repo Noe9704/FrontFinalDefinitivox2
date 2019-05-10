@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="../estilo/alertify.css">
+    <link rel="stylesheet" type="text/css" href="../estilo/themes/default.css">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -61,10 +64,19 @@
         <br>
 
     <h2> Editar Equipos </h2>
-        <input type="text" name="buscar" id="nuedoNombreEquipo" placeholder="nuevo nombre del equipo " size="28">
-        <input type="text" name="buscar" id="titulosLiga" placeholder="titulos de liga " size="28">
-        <input type="text" name="buscar" id="titulosInternacionales" placeholder="titulos internacionales" size="28">
+        <input type="text" name="buscar" id="nuevoNombreEquipo" placeholder="nuevo nombre del equipo " size="28">
+        <input type="text" name="buscar" id="titulosNuevosLiga" placeholder="titulos de liga " size="28">
+        <input type="text" name="buscar" id="titulosNuevosInternacionales" placeholder="titulos internacionales" size="28">
+        <input type="text" name="buscar" id="idEquipos" placeholder="id del equipo a editar" size="28">
         <button type="button" class="btn btn-primary" id="guardarCambioEquipo">Guardar</button>
+
+    <h2> Agregar Equipos </h2>
+         <input type="text" name="buscar" id="nombreEquipo" placeholder="nombre del equipo " size="28">
+          <input type="text" name="buscar" id="titulosLiga" placeholder="titulos de liga" size="28">
+           <input type="text" name="buscar" id="titulosInter" placeholder="titulos internacionales" size="28">
+           <input type="text" name="buscar" id="fundacion" placeholder="fecha de fundación" size="28">
+           <input type="text" name="buscar" id="imagenEquipo" placeholder="link de imagen" size="28">
+           <button type="button" class="btn btn-primary" id="guardarNuevoEquipo">Guardar</button>
 
     <div id= "datos" class="container">
 
@@ -91,6 +103,7 @@
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous">
     </script>
+    <script src="../alertify.js"></script>
     <script src="../JavaScript/editarJugadores.js"></script>
 </body>
 </html>
