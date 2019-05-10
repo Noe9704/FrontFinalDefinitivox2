@@ -171,7 +171,15 @@ iframe{
 }
 
 #login-row{
-    margin-left: 650px;
+    margin-left: 350px;
+}
+
+#iniciarbtn{
+    margin-left: 120px;
+}
+
+.text-info{
+    color: #072146;
 }
 
 
