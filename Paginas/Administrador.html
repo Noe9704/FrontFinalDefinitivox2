@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>Liga mx</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <a href="../index.html"><img src="../Imagenes/logoLiga.png" id="logoLiga"></a>
+    <nav>
+        <ul id="menu">
+            <li></li><li></li><li></li><li></li><li>
+            </li><li></li><li></li><li></li><li></li>
+            <li></li><li></li><li></li><li></li><li>
+            </li><li></li><li></li><li></li><li></li>
+            <li id="home"><a href="../index.html">Home</a></li>
+            <li id="contacto"><a href="./Jugadores.html">Jugadores</a></li>
+            <li id="login"><a href="./Equipo.html">Equipos</a></li>
+            <li id="admin"><a href="./Administrador.html">Administrador</a></li>
+        </ul>
+    </nav>
+
+    <h3>Administrador</h3>
+    <h2>Editar Jugadores</h2>
+    <!--<h3>Buscar</h3>-->
+    <form action="">
+        <input type="text" name="buscar" id="numeroJugador" placeholder="nuevo numero del jugador " size="28">
+        <input type="text" name="buscar" id="equipoJugador" placeholder="nuevo equipo del jugador" size="28">
+        <input type="text" name="buscar" id="idJugador" placeholder="id del jugador" size="28">
+        <button type="button" class="btn btn-primary" id="buscar">Aceptar</button>
+    </form>
+
+    <h2>Borrar Jugadores</h2>
+    <form action="">
+        <input type="text" name="buscar" id="idJugadorBorrar" placeholder="id del jugador a borrar" size="28">
+        <button type="button" class="btn btn-primary" id="borrar">Borrar</button>
+    </form>
+
+    <h2> Agregar Jugadores </h2>
+        <input type="text" name="buscar" id="nombreJugador" placeholder="nombre del jugador " size="28">
+        <input type="text" name="buscar" id="apellidoJugador" placeholder="apellido del jugador" size="28">
+        <input type="text" name="buscar" id="equipoJugadorAct" placeholder="equipo del jugador" size="28">
+        <br>
+        <br>
+        <input type="text" name="buscar" id="numActJugador" placeholder="numero del jugador " size="28">
+        <input type="text" name="buscar" id="posJugador" placeholder="posicion del jugador" size="28">
+        <input type="text" name="buscar" id="linkJugador" placeholder="link de la imagen del jugador" size="28">
+        <button type="button" class="btn btn-primary" id="agregar">Agregar</button>
+        <br>
+        <br>
+        <br>
+    <div id= "datos" class="container">
+        <table class= "tabla">
+            <div class="prueba">
+            <tr class="nom"></tr>
+            <tr class="ima"></tr>
+            <tr class="bre"></tr>
+            </div>
+        </table>
+    </div>
+    <div class= "imagen"></div>
+    
+    <footer id="info" class="foot">
+        <div id="">
+            <h4>Información</h4>
+            <p class="foot">Edgar López Villarreal A01039505</p>
+            <p class="foot">Noe Flores A00949282</p>
+        </div>
+    </footer>
+
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+    </script>
+    <script src="../JavaScript/editarJugadores.js"></script>
+</body>
+</html>

@@ -9,6 +9,7 @@ var bre = $('.bre')
 
 $('#buscar').click(function(){
 	//alert($("#buscartext").val());
+	//clearHtml();
 	$.ajax({
 		//url : 'http://localhost:3000/jugador' + $(buscartext).val(),
 		type : "GET",
@@ -54,15 +55,20 @@ $('#buscar').click(function(){
 					//new_html += `<img id="imagen" width="250" height="250" src="${data[i].imagen}">`
 					
 				}
+
 				else {
 					error += `<span>No se encontro al Jugador ${texto.val()}</span>`
 					//flag = 1;
 					//break;
 				}
+
+				
+
 				console.log(data.length);
 
 			//container.append(data[0].name);
 		}
+
 
 
 		/*if(flag == 1){
@@ -74,6 +80,8 @@ $('#buscar').click(function(){
 			nom.append(new_html);
 			ima.append(new_html2);
 		}*/
+		//clearHtml()
+
 		//img.append(new_html);
 		br += `<td><br></td>`
 		nom.append(new_html);
@@ -89,6 +97,9 @@ $('#buscar').click(function(){
 				});
 				container.append('<br/></br>');
 			});*/
+			clearText();
+			//clearHtml();
+
 		},
 		error:function(error){
 			console.log("Falla")
@@ -96,3 +107,16 @@ $('#buscar').click(function(){
 	
 	});
 });
+
+function clearText()  
+{
+    document.getElementById('personaNombre').value = "";
+ 
+}  
+
+function clearHtml()  
+{
+    //document.getElementById('personaNombre').value = "";
+    document.getElementById('datos').innerHTML = "";
+ 
+}  

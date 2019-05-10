@@ -112,6 +112,8 @@ iframe{
     background-color: #072146;
     color: #EEE9E8;
     height: 100px;
+    /*vertical-align: bottom;
+    /*margin-top: 100px;*/
 }
 
 .foot{
