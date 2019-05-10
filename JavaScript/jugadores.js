@@ -45,8 +45,10 @@ $('#buscar').click(function(){
 
 				if(data[i].nombre == texto.val() || data[i].apellido == texto.val()){
 
-					new_html += `<td>Nombre: ${data[i].nombre} ${data[i].apellido} <br>Numero: ${data[i].numero}<br>Equipo: <a href= "./PorEquipo.html">${data[i].equipo}</a></td>`
+					new_html += `<td>Nombre: ${data[i].nombre} ${data[i].apellido} <br>Numero: ${data[i].numero}<br>Equipo: <span class"equipoID" id="${data[i].equipoID}"><a href="./PorEquipo.html?id=${data[i].equipoID}">${data[i].equipo}</a></span></td>`
 					new_html2 += `<td><img width="250" height="250" src="${data[i].imagen}"></td>`
+					//new_html2+= `<span class"equipoID" id="${data[i].equipoID}"><a id="pointer"><img width="250" height="250" src="${data[i].imagen}"></a></span>`
+					console.log(data[i].equipoID)
 					//flag = 0;
 					//break;
 					//new_html += `<div><span> Jugador: ${data[i].nombre} numero: ${data[i].numero}<br><img id="imagen" width="250" height="250" src="${data[i].imagen}"></span></div>`
@@ -83,10 +85,10 @@ $('#buscar').click(function(){
 		//clearHtml()
 
 		//img.append(new_html);
-		br += `<td><br></td>`
+		//br += `<td><br></td>`
 		nom.append(new_html);
 		ima.append(new_html2);
-		cont = cont + 1
+		//cont = cont + 1
 		//if(cont == 3){
 			//bre.append(br)
 		//}
@@ -97,17 +99,24 @@ $('#buscar').click(function(){
 				});
 				container.append('<br/></br>');
 			});*/
-			clearText();
+			//clearText();
 			//clearHtml();
 
-		},
+		}/*,
 		error:function(error){
 			console.log("Falla")
-		}
+		}*/
 	
+	}).done(function(response){
+		$('.equipoID').click(function(event){
+		alert('hola')
+		console.log(event)
+		var id = event.currentTarget.id;
+		window.location = ("./PorEquipo.html?id="+id);
+		});
 	});
 });
-
+/*
 function clearText()  
 {
     document.getElementById('personaNombre').value = "";
@@ -119,4 +128,4 @@ function clearHtml()
     //document.getElementById('personaNombre').value = "";
     document.getElementById('datos').innerHTML = "";
  
-}  
+}*/

@@ -23,7 +23,7 @@ $.ajax({
         var nombreEquipo = data.nombre
 
         new_html += `<h1 id="titequipo">${data.nombre}</h1>`
-        new_html2 += `<td><h2>Titulos de Liga: ${data.titulosliga}</h2><br><h2>Titulos de Internacionales: ${data.titulosinter}</h2></td>`
+        new_html2 += `<td><h2>Titulos de Liga: ${data.titulosliga}</h2><br><h2>Titulos Internacionales: ${data.titulosinter}</h2></td>`
         new_html3 += `<td><img width="250" height="250" src="${data.imagen}"></td>`
 
         jumb.append(new_html);

@@ -16,7 +16,6 @@ body{
     padding: 0px;
     margin-top: -120px;
     list-style: none;
-    /*background-color: gray;*/
     background-color: #072146;
     overflow: hidden;
     cursor: pointer;
@@ -158,11 +157,22 @@ iframe{
 #equi{
     margin-left: 200PX;
 }
- #titequipo{
-     margin-top: 0px;
- }
 
- #pointer{
+#titequipo{
+    margin-top: 0px;
+}
+
+#pointer{
      cursor: pointer;
- }
+}
+  
+.cont{
+    padding: 0px;
+}
+
+#login-row{
+    margin-left: 650px;
+}
+
+
 
