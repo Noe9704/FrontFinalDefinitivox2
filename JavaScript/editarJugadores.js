@@ -8,7 +8,7 @@ var id = $('#idJugador');
 
 
 $('#buscar').click(function(){
-	console.log("hola")
+	//console.log("hola")
 	var datos = {
 		numero: numero.val(),
 		equipo: equipo.val()		
@@ -26,13 +26,15 @@ $('#buscar').click(function(){
 					equipo: equipo.val()
 				}),
 		success: function(data){
-			location.reload(),
+			alertify.success("Jugador editado con exito");
+			//location.reload(),
 			console.log("Entra")
 
 			clearText();
 		},
 		error:function(error){
 			console.log("falla")
+			alertify.error('El jugador no se ha podido editar');
 
 		}
 	});
@@ -54,7 +56,7 @@ $('#borrar').click(function(){
 		//contentType: "application/json; charset=utf-8",
 		success: function(data){
 			alertify.success("Jugador borrado con exito");
-			//slocation.reload(),
+			//location.reload(),
 
 			console.log("Entra")
 
@@ -103,11 +105,13 @@ $('#agregar').click(function(){
 				posicion:posJugador.val(),
 				imagen:linkJugador.val()}),
 		success: function(data){
-			location.reload(),
+			//location.reload(),
+			alertify.success("Jugador agregado con exito");
 			console.log("Entra")
 			clearTextAgregar();
 		},
 		error:function(error){
+			alertify.error('El jugador no se ha podido agregar');
 			console.log("falla")
 
 		}
@@ -154,6 +158,7 @@ $('#guardarCambioEquipo').click(function(){
 			//clearText();
 		},
 		error:function(error){
+			alertify.error('El equipo no se ha podido editar');
 			console.log("falla")
 
 		}
@@ -195,12 +200,14 @@ $('#guardarNuevoEquipo').click(function(){
 				fundacion: fundacion.val(),
 				imagen:imagenEquipo.val()}),
 		success: function(data){
-			location.reload(),
+			alertify.success("Equipo registrado con exito");
+			//location.reload(),
 			console.log("Entra")
 			clearTextAgregarEquipos()
 			
 		},
 		error:function(error){
+			alertify.error('El equipo no se ha podido registrar');
 			console.log("falla")
 
 		}
