@@ -32,23 +32,41 @@
             <li id="admin"><a href="./Administrador.html">Administrador</a></li>
         </ul>
     </nav>
+    
+    <ul id="menu">
+        <li></li><li></li><li></li><li></li><li>
+        </li><li></li><li></li><li></li><li></li>
+        <li></li><li></li><li></li><li></li><li>
+        </li><li></li><li></li><li></li><li></li>
+        <li id="editar_jugadores">Editar Jugadores</li>
+        <li id="borrar_jugadores">Borrar Jugadores</li>
+        <li id="agregar_jugadores">Agregar Jugadores</li>
+        <li id="editar_equipos">Editar Equipos</li>
+        <li id="agregar_equipos">Agregar Equipos</li>
+    </ul>
+    
 
     <h3>Administrador</h3>
+
+    <section id="editar_jugadores_section" class="hidden">
     <h2>Editar Jugadores</h2>
-    <!--<h3>Buscar</h3>-->
     <form action="">
         <input type="text" name="buscar" id="numeroJugador" placeholder="nuevo numero del jugador " size="28">
         <input type="text" name="buscar" id="equipoJugador" placeholder="nuevo equipo del jugador" size="28">
         <input type="text" name="buscar" id="idJugador" placeholder="id del jugador" size="28">
         <button type="button" class="btn btn-primary" id="buscar">Aceptar</button>
     </form>
+    </section>
 
+    <section id="borrar_jugadores_section" class="hidden">
     <h2>Borrar Jugadores</h2>
     <form action="">
         <input type="text" name="buscar" id="idJugadorBorrar" placeholder="id del jugador a borrar" size="28">
         <button type="button" class="btn btn-primary" id="borrar">Borrar</button>
     </form>
+    </section>
 
+    <section id="agregar_jugadores_section" class="hidden">
     <h2> Agregar Jugadores </h2>
         <input type="text" name="buscar" id="nombreJugador" placeholder="nombre del jugador " size="28">
         <input type="text" name="buscar" id="apellidoJugador" placeholder="apellido del jugador" size="28">
@@ -62,14 +80,18 @@
         <br>
         <br>
         <br>
+    </section>
 
+    <section id="editar_equipos_section" class="hidden">
     <h2> Editar Equipos </h2>
         <input type="text" name="buscar" id="nuevoNombreEquipo" placeholder="nuevo nombre del equipo " size="28">
         <input type="text" name="buscar" id="titulosNuevosLiga" placeholder="titulos de liga " size="28">
         <input type="text" name="buscar" id="titulosNuevosInternacionales" placeholder="titulos internacionales" size="28">
         <input type="text" name="buscar" id="idEquipos" placeholder="id del equipo a editar" size="28">
         <button type="button" class="btn btn-primary" id="guardarCambioEquipo">Guardar</button>
+    </section>
 
+    <section id="agregar_equipos_section" class="hidden">
     <h2> Agregar Equipos </h2>
          <input type="text" name="buscar" id="nombreEquipo" placeholder="nombre del equipo " size="28">
           <input type="text" name="buscar" id="titulosLiga" placeholder="titulos de liga" size="28">
@@ -77,9 +99,9 @@
            <input type="text" name="buscar" id="fundacion" placeholder="fecha de fundación" size="28">
            <input type="text" name="buscar" id="imagenEquipo" placeholder="link de imagen" size="28">
            <button type="button" class="btn btn-primary" id="guardarNuevoEquipo">Guardar</button>
+    </section>
 
     <div id= "datos" class="container">
-
         <table class= "tabla">
             <div class="prueba">
             <tr class="nom"></tr>
@@ -103,6 +125,7 @@
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous">
     </script>
+    <script src="../JavaScript/administradorJQuery.js"></script>
     <script src="../alertify.js"></script>
     <script src="../JavaScript/editarJugadores.js"></script>
 </body>
