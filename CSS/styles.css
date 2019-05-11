@@ -178,8 +178,6 @@ iframe{
     margin-left: 120px;
 }
 
-
-
 #iniciar{
     margin-left: 697px;
 }
@@ -190,6 +188,27 @@ iframe{
 
 .hidden{
     display: none;
+}
+
+#menuAdmin{
+    margin: 0px;
+    padding: 0px;
+    margin-top: 10px;
+    list-style: none;
+    background-color: #072146;
+    overflow: hidden;
+    cursor: pointer;
+    color: #EEE9E8;
+}
+
+#menuAdmin > li{
+    float: left;
+    padding: 10px;
+    margin: 5px;
+}
+
+#menuAdmin > li:hover{
+    background-color: #ffffff;
 }
 
 

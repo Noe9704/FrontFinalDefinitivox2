@@ -1,4 +1,4 @@
-$('#menu > li').on("click", function(event){
+$('#menuAdmin > li').on("click", function(event){
     //remover clase de seccion seleccionada
     $(".selected").removeClass("selected");
 
