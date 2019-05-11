@@ -9,6 +9,20 @@ var url_string = window.location.href
 var url = new URL(url_string);
 var id = url.searchParams.get("id");
 
+let admin = ""
+let salir = ""
+if(localStorage.getItem('token') != null){
+	admin += `<button><a href="./Administrador.html">Administrador</a></button>`
+	salir += `<button id="salir" type="submit"><a href="../index.html">Salir</a></button>`
+	$('#login').text("")
+	$('#menu').append(admin)
+	$('#menu').append(salir)
+
+	$('#salir').click(function(){
+		localStorage.removeItem('token')
+	})
+}
+
 $.ajax({
     type: "GET",
     url: 'http://localhost:3000/consultar/equipos/'+id,

@@ -211,6 +211,11 @@ iframe{
     background-color: #ffffff;
 }
 
+.hiddenAdmin{
+    display: none;
+}
+
+
 
 
 

@@ -6,6 +6,22 @@ var nom = $('.nom')
 var ima = $('.ima')
 var prueba = $('.prueba')
 var bre = $('.bre')
+var errorhtml = $('#error');
+var menu = $('menu')
+
+let admin = ""
+let salir = ""
+if(localStorage.getItem('token') != null){
+	admin += `<button><a href="./Administrador.html">Administrador</a></button>`
+	salir += `<button id="salir" type="submit"><a href="../index.html">Salir</a></button>`
+	$('#login').text("")
+	$('#menu').append(admin)
+	$('#menu').append(salir)
+
+	$('#salir').click(function(){
+		localStorage.removeItem('token')
+	})
+}
 
 $('#buscar').click(function(){
 	//alert($("#buscartext").val());
@@ -48,8 +64,8 @@ $('#buscar').click(function(){
 					new_html += `<td>Nombre: ${data[i].nombre} ${data[i].apellido} <br>Numero: ${data[i].numero}<br>Equipo: <span class"equipoID" id="${data[i].equipoID}"><a href="./PorEquipo.html?id=${data[i].equipoID}">${data[i].equipo}</a></span></td>`
 					new_html2 += `<td><img width="250" height="250" src="${data[i].imagen}"></td>`
 					//new_html2+= `<span class"equipoID" id="${data[i].equipoID}"><a id="pointer"><img width="250" height="250" src="${data[i].imagen}"></a></span>`
-					console.log(data[i].equipoID)
-					//flag = 0;
+					console.log(data[i].equipoID)	
+					flag = 0;
 					//break;
 					//new_html += `<div><span> Jugador: ${data[i].nombre} numero: ${data[i].numero}<br><img id="imagen" width="250" height="250" src="${data[i].imagen}"></span></div>`
 					//container.append("Jugador: " + data[i].nombre + " numero: " + data[i].numero)
@@ -58,9 +74,12 @@ $('#buscar').click(function(){
 					
 				}
 
-				else {
-					error += `<span>No se encontro al Jugador ${texto.val()}</span>`
-					//flag = 1;
+				else if(data[i].nombre != texto.val() || data[i].apellido != texto.val()){
+					error += `<h1 class="error">No se encontro al Jugador ${texto.val()}</h1>`
+					//errorhtml.append(error)
+					//errorhtml.append(error);
+					//break;
+					flag = 1;
 					//break;
 				}
 
@@ -86,8 +105,14 @@ $('#buscar').click(function(){
 
 		//img.append(new_html);
 		//br += `<td><br></td>`
+		//nom.append(error);
+
 		nom.append(new_html);
 		ima.append(new_html2);
+		//errorhtml.append(error)
+
+		
+		
 		//cont = cont + 1
 		//if(cont == 3){
 			//bre.append(br)
@@ -116,7 +141,7 @@ $('#buscar').click(function(){
 		});
 	});
 });
-/*
+
 function clearText()  
 {
     document.getElementById('personaNombre').value = "";
@@ -128,4 +153,4 @@ function clearHtml()
     //document.getElementById('personaNombre').value = "";
     document.getElementById('datos').innerHTML = "";
  
-}*/
+}

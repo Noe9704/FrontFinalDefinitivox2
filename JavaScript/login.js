@@ -1,4 +1,3 @@
-
 $('#iniciar').click(function(){
 	var email = $('#username').val();
 	var password = $('#password').val();
@@ -23,13 +22,11 @@ $('#iniciar').click(function(){
 		success: function(data){
 			//location.reload(),
 			//alertify.success("Jugador agregado con exito");
-			 // guardar token en localstorage o cookie
-			 alert(data.token);
+			//guardar token en localstorage o cookie
 			localStorage.setItem('token', data.token)
 
 			console.log("Entra")
-			window.location = '../index.html'
-			//clearTextAgregar();
+			window.location = './Administrador.html'
 		},
 		error:function(error){
 			//alertify.error('El jugador no se ha podido agregar');

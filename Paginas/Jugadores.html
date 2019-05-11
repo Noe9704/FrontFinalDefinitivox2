@@ -24,9 +24,10 @@
             <li></li><li></li><li></li><li></li><li>
             </li><li></li><li></li><li></li><li></li>
             <li id="home"><a href="../index.html">Home</a></li>
-            <li id="contacto"><a href="./Jugadores.html">Jugadores</a></li>
-            <li id="login"><a href="./Equipo.html">Equipos</a></li>
-            <li id="admin"><a href="./Administrador.html">Administrador</a></li>
+            <li id="jugadores"><a href="./Jugadores.html">Jugadores</a></li>
+            <li id="equipos"><a href="./Equipo.html">Equipos</a></li>
+            <li id="admin" class="hiddenAdmin"><a href="./Administrador.html">Administrador</a></li>
+            <li id="login"><a href="./login.html">Iniciar Sesion Administrador</a></li>
         </ul>
     </nav>
 
@@ -37,6 +38,8 @@
         <input type="text" name="buscar" id="personaNombre">
         <button type="button" class="btn btn-primary" id="buscar">Buscar</button>
     </form>
+
+    <span id="error"></span>
 
     <div id= "datos" class="container">
         <table class= "tabla">
