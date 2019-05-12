@@ -29,7 +29,8 @@ $('#buscar').click(function(){
 	$.ajax({
 		//url : 'http://localhost:3000/jugador' + $(buscartext).val(),
 		type : "GET",
-		url : 'http://localhost:3000/consultar/jugadores/', //+ $('#buscartext').val(),
+		//url : 'http://localhost:3000/consultar/jugadores/', //+ $('#buscartext').val(),
+		url : 'https://finalwebd.herokuapp.com/consultar/jugadores/', //+ $('#buscartext').val(),
 		crossDomain: true,		 
 		dataType : "json",
 
@@ -124,7 +125,7 @@ $('#buscar').click(function(){
 				});
 				container.append('<br/></br>');
 			});*/
-			//clearText();
+			clearText();
 			//clearHtml();
 
 		}/*,
@@ -147,7 +148,7 @@ function clearText()
     document.getElementById('personaNombre').value = "";
  
 }  
-
+/*
 function clearHtml()  
 {
     //document.getElementById('personaNombre').value = "";

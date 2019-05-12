@@ -1,11 +1,5 @@
 
 
-//------------------------------JUGADORES---------------------
-///EDITAR JUGADORES
-var numero = $('#numeroJugador');
-var equipo = $('#equipoJugador');
-var id = $('#idJugador');
-
 let admin = ""
 let salir = ""
 if(localStorage.getItem('token') != null){
@@ -20,6 +14,17 @@ if(localStorage.getItem('token') != null){
 	})
 }
 
+var token = localStorage.getItem('token');
+if (token) {
+  token = token.replace(/^"(.*)"$/, '$1'); // Remove quotes from token start/end.
+}
+
+
+//------------------------------JUGADORES---------------------
+///EDITAR JUGADORES
+var numero = $('#numeroJugador');
+var equipo = $('#equipoJugador');
+var id = $('#idJugador');
 $('#buscar').click(function(){
 	//console.log("hola")
 	var datos = {
@@ -29,15 +34,20 @@ $('#buscar').click(function(){
 	console.log(datos)
 	$.ajax({
 		type : 'PATCH',
-		url : 'http://localhost:3000/editar/jugadores/' + id.val(),
+		//url : 'http://localhost:3000/editar/jugadores/' + id.val(),
+		url:'https://finalwebd.herokuapp.com/editar/jugadores/' + id.val(),
 		crossDomain: true,
 		//dataType: 'json',
-		contentType:'application/json',
 		//contentType: "application/json; charset=utf-8",
 		data: JSON.stringify({
 					numero: numero.val(),
 					equipo: equipo.val()
 				}),
+		headers:{
+			'Content-Type':'application/json',
+			'Authorization': 'Bearer ' + token
+
+		},
 		success: function(data){
 			alertify.success("Jugador editado con exito");
 			//location.reload(),
@@ -62,10 +72,15 @@ $('#borrar').click(function(){
 	$.ajax({
 		//url : 'http://localhost:3000/jugador' + $(buscartext).val(),
 		type : 'DELETE',
-		url : 'http://localhost:3000/editar/jugadores/' + idBorrar.val(),
+		//url : 'http://localhost:3000/editar/jugadores/' + idBorrar.val(),
+		url:'https://finalwebd.herokuapp.com/editar/jugadores/' + idBorrar.val(),
 		crossDomain: true,
 		//dataType: 'json',
-		contentType:'application/json',
+		headers:{
+			'Content-Type':'application/json',
+			'Authorization': 'Bearer ' + token
+		},
+		//contentType:'application/json',
 		//contentType: "application/json; charset=utf-8",
 		success: function(data){
 			alertify.success("Jugador borrado con exito");
@@ -83,6 +98,7 @@ $('#borrar').click(function(){
 	});
 });
 
+
 //AGREGAR JUGADORES
 var nombreJugador = $('#nombreJugador');
 var apellidoJugador = $('#apellidoJugador');
@@ -90,41 +106,49 @@ var equipoJugador = $('#equipoJugadorAct');
 var numActJugador = $('#numActJugador');
 var posJugador = $('#posJugador');
 var linkJugador = $('#linkJugador');
-
+var idEquipoDelJugador = $('#idEquipoJugadorAct');
 
 $('#agregar').click(function(){
 	var datos = {
 		nombre: nombreJugador.val(),
-		apellido: apellidoJugador.val(),
-		equipo: equipoJugador.val(),
+		apellido:apellidoJugador.val(),
+		equipo:equipoJugador.val(),
 		numero:numActJugador.val(),
 		posicion:posJugador.val(),
-		imagen:linkJugador.val()
-	}
-	console.log(equipoJugador.val())
+		imagen:linkJugador.val(),
+		equipoID:idEquipoDelJugador.val()
+	};
+	console.log(datos);
 	$.ajax({
 		//url : 'http://localhost:3000/jugador' + $(buscartext).val(),
 		type : 'POST',
-		url : 'http://localhost:3000/editar/jugadores', //+ $('#buscartext').val(),
+		//url : 'http://localhost:3000/editar/equipos', //+ $('#buscartext').val(),
+		url : 'https://finalwebd.herokuapp.com/editar/jugadores',
 		crossDomain: true,
 		//dataType: 'json',
-		contentType:'application/json',
+		//contentType:'application/json',
+		headers:{
+			'Content-Type':'application/json',
+			'Authorization': 'Bearer ' + token
+		},
 		//contentType: "application/json; charset=utf-8",
 		data: JSON.stringify({
-				nombre: nombreJugador.val(),
-				apellido: apellidoJugador.val(),
-				equipo: equipoJugador.val(),
-				numero:numActJugador.val(),
-				posicion:posJugador.val(),
-				imagen:linkJugador.val()}),
+		nombre: nombreJugador.val(),
+		apellido:apellidoJugador.val(),
+		equipo:equipoJugador.val(),
+		numero:numActJugador.val(),
+		posicion:posJugador.val(),
+		imagen:linkJugador.val(),
+		equipoID:idEquipoDelJugador.val()}),
 		success: function(data){
+			alertify.success("Jugador registrado con exito");
 			//location.reload(),
-			alertify.success("Jugador agregado con exito");
 			console.log("Entra")
-			clearTextAgregar();
+			//clearTextAgregarEquipos()
+			
 		},
 		error:function(error){
-			alertify.error('El jugador no se ha podido agregar');
+			alertify.error('El jugador no se ha podido registrar');
 			console.log("falla")
 
 		}
@@ -153,18 +177,23 @@ $('#guardarCambioEquipo').click(function(){
 	console.log(datos)
 	$.ajax({
 		type : 'PATCH',
-		url : 'http://localhost:3000/editar/equipos/' + idEquipos.val(),
+		//url : 'http://localhost:3000/editar/equipos/' + idEquipos.val(),
+		url : 'https://finalwebd.herokuapp.com/editar/equipos/' + idEquipos.val(),
 		crossDomain: true,
 		//dataType: 'json',
-		contentType:'application/json',
+		//contentType:'application/json',
 		//contentType: "application/json; charset=utf-8",
+		headers:{
+			'Content-Type':'application/json',
+			'Authorization': 'Bearer ' + token
+		},
 		data: JSON.stringify({
 					nombre: nuevoNombreEquipo.val(),
 					titulosliga: titulosNuevoLiga.val(),
 					titulosinter: titulosNuevosInternacionales.val()
 				}),
 		success: function(data){
-			location.reload(),
+			alertify.success("Equipo editado con exito");
 			console.log("Entra")
 			clearTextEditarEquipos();
 
@@ -201,10 +230,15 @@ $('#guardarNuevoEquipo').click(function(){
 	$.ajax({
 		//url : 'http://localhost:3000/jugador' + $(buscartext).val(),
 		type : 'POST',
-		url : 'http://localhost:3000/editar/equipos', //+ $('#buscartext').val(),
+		//url : 'http://localhost:3000/editar/equipos', //+ $('#buscartext').val(),
+		url : 'https://finalwebd.herokuapp.com/editar/equipos',
 		crossDomain: true,
 		//dataType: 'json',
-		contentType:'application/json',
+		//contentType:'application/json',
+		headers:{
+			'Content-Type':'application/json',
+			'Authorization': 'Bearer ' + token
+		},
 		//contentType: "application/json; charset=utf-8",
 		data: JSON.stringify({
 				nombre: nombreEquipo.val(),
@@ -229,12 +263,104 @@ $('#guardarNuevoEquipo').click(function(){
 
 
 
+var buscarIdJugador = $('#idBuscarJugador');
+var container = $('.datosJugador');
+
+$('#buscarBotonIdJugador').click(function(){
+	clearHtmlBorrar()
+	//console.log(buscarIdJugador.val());
+	$.ajax({
+		type : "GET",
+		//url : 'http://localhost:3000/consultar/jugadores/',
+		url : 'https://finalwebd.herokuapp.com/consultar/jugadores/',
+		crossDomain: true,		 
+		dataType : "json",
+
+		success: function(data){
+			//console.log(data);
+			let new_html = ""
+			for(let i = 0; i < data.length;i++){
+
+				if(data[i].nombre == buscarIdJugador.val()){
+					new_html += `Nombre del jugador : ${data[i].nombre} ${data[i].apellido} id_:${data[i]._id}`
+				}			
+		}
+		console.log(new_html);
+		container.append(new_html);
+		clearTextBuscarIdJugador()
+		},
+		error:function(error){
+			console.log("Falla")
+		}
+	});
+});
+
+var buscarIdJugadorBorrar = $('#idBuscarJugadorBorrar');
+var containerBorrar = $('.datosJugadorBorrar');
+
+$('#buscarBotonIdJugadorBorrar').click(function(){
+	clearHtmlBorrar()
+	//console.log(buscarIdJugador.val());
+	$.ajax({
+		type : "GET",
+		//url : 'http://localhost:3000/consultar/jugadores/',
+		url : 'https://finalwebd.herokuapp.com/consultar/jugadores/',
+		crossDomain: true,		 
+		dataType : "json",
+
+		success: function(data){
+			//console.log(data);
+			let new_htmlBorrar = ""
+			for(let i = 0; i < data.length;i++){
+
+				if(data[i].nombre == buscarIdJugadorBorrar.val()){
+					new_htmlBorrar += `Nombre del jugador : ${data[i].nombre} ${data[i].apellido} id_:${data[i]._id}`
+				}			
+		}
+		//console.log(new_htmlBorrar);
+		containerBorrar.append(new_htmlBorrar);
+		clearTextBuscarIdJugadorBorrar()
+		},
+		error:function(error){
+			console.log("Falla")
+		}
+	});
+});
 
 
+var buscarIdEquipoEditar = $('#idBuscarEditarEquipo');
+var containerIdEquipo = $('.datosEquiposBuscar');
 
+$('#buscarBotonIdEquipo').click(function(){
+	//clearHtmlBorrar()
+	//console.log(buscarIdJugador.val());
+	clearHtmlEquipos()
+	$.ajax({
+		type : "GET",
+		//url : 'http://localhost:3000/consultar/equipos/',
+		url : 'https://finalwebd.herokuapp.com/consultar/equipos/',
+		crossDomain: true,		 
+		dataType : "json",
 
+		success: function(data){
+			//console.log(data);
+			let new_htmlEquipos = ""
+			for(let i = 0; i < data.length;i++){
 
-
+				if(data[i].nombre == buscarIdEquipoEditar.val()){
+					new_htmlEquipos += `Nombre del equipo : ${data[i].nombre} id_:${data[i]._id}`
+				}			
+		}
+		console.log(new_htmlEquipos);
+		containerIdEquipo.append(new_htmlEquipos);
+		//clearTextBuscarIdJugadorBorrar()
+		clearTextBuscarIdEquipos()
+		},
+		error:function(error){
+			console.log("Falla")
+		}
+	});
+});
 
 
 
@@ -278,3 +404,33 @@ function clearTextAgregarEquipos(){
     document.getElementById('fundacion').value = "";
     document.getElementById('imagenEquipo').value = "";
 }
+
+
+function clearHtml()  
+{
+    document.getElementById('containerJugador').innerHTML = "";
+} 
+
+
+function clearTextBuscarIdJugador(){
+	document.getElementById('idBuscarJugador').value = "";
+} 
+
+
+function clearHtmlBorrar(){
+    document.getElementById('containerJugadorBorrar').innerHTML = "";
+} 
+
+
+function clearTextBuscarIdJugadorBorrar(){
+	document.getElementById('idBuscarJugadorBorrar').value = "";
+} 
+
+function clearHtmlEquipos(){
+    document.getElementById('containerEquipoBuscar').innerHTML = "";
+} 
+
+
+function clearTextBuscarIdEquipos(){
+	document.getElementById('idBuscarEditarEquipo').value = "";
+} 

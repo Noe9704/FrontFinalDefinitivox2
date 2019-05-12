@@ -25,7 +25,8 @@ if(localStorage.getItem('token') != null){
 
 $.ajax({
     type: "GET",
-    url: 'http://localhost:3000/consultar/equipos/'+id,
+    //url: 'http://localhost:3000/consultar/equipos/'+id,
+    url: 'https://finalwebd.herokuapp.com/consultar/equipos/' + id,
     //url: 'http://localhost:3000/consultar/jugadores',
     crossDomain: true,
     dataType: "json",
@@ -48,7 +49,8 @@ $.ajax({
 
         $.ajax({
             type: "GET",
-            url: 'http://localhost:3000/consultar/jugadores/',
+            //url: 'http://localhost:3000/consultar/jugadores/',
+            url : 'https://finalwebd.herokuapp.com/consultar/jugadores',
             crossDomain: true,
             dataType: "json",
 

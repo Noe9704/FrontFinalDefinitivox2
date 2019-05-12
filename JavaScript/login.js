@@ -12,7 +12,8 @@ $('#iniciar').click(function(){
 	$.ajax({
 		//url : 'http://localhost:3000/jugador' + $(buscartext).val(),
 		method : 'POST',
-		url : 'http://localhost:3000/users/login', //+ $('#buscartext').val(),
+		//url : 'http://localhost:3000/users/login', //+ $('#buscartext').val(),
+		url: 'https://finalwebd.herokuapp.com/users/login',
 		headers: {
 			 'Content-Type':'application/json'
 			},

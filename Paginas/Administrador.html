@@ -45,33 +45,60 @@
         <li id="editar_equipos">Editar Equipos</li>
         <li id="agregar_equipos">Agregar Equipos</li>
     </ul>
-    
+  
+
 
     <h1>Administrador</h1>
-
     <section id="editar_jugadores_section" class="hidden">
     <h3>Editar Jugadores</h3>
+    <form>
+        <input type="text" name="buscar" id="idBuscarJugador" placeholder="Buscar jugador.." size="28">
+        <button type="button" class="btn btn-primary" id="buscarBotonIdJugador">Buscar</button>
+    </form>
+</br>
     <form action="">
         <input type="text" name="buscar" id="numeroJugador" placeholder="nuevo numero del jugador " size="28">
         <input type="text" name="buscar" id="equipoJugador" placeholder="nuevo equipo del jugador" size="28">
         <input type="text" name="buscar" id="idJugador" placeholder="id del jugador" size="28">
         <button type="button" class="btn btn-primary" id="buscar">Aceptar</button>
     </form>
+    <form>
+        <br>
+        <div id="containerJugador" class="datosJugador"></div>
+    </form>
     </section>
+
+
 
     <section id="borrar_jugadores_section" class="hidden">
     <h3>Borrar Jugadores</h3>
+    <form>
+        <input type="text" name="buscar" id="idBuscarJugadorBorrar" placeholder="Buscar jugador.." size="28">
+        <button type="button" class="btn btn-primary" id="buscarBotonIdJugadorBorrar">Buscar</button>
+    </form>
+</br>
+
     <form action="">
         <input type="text" name="buscar" id="idJugadorBorrar" placeholder="id del jugador a borrar" size="28">
         <button type="button" class="btn btn-primary" id="borrar">Borrar</button>
     </form>
+
+    <form>
+        <br>
+        <div id="containerJugadorBorrar" class="datosJugadorBorrar"></div>
+    </form>
+
     </section>
+
+
+
 
     <section id="agregar_jugadores_section" class="hidden">
     <h3> Agregar Jugadores </h3>
         <input type="text" name="buscar" id="nombreJugador" placeholder="nombre del jugador " size="28">
         <input type="text" name="buscar" id="apellidoJugador" placeholder="apellido del jugador" size="28">
         <input type="text" name="buscar" id="equipoJugadorAct" placeholder="equipo del jugador" size="28">
+        <input type="text" name="buscar" id="idEquipoJugadorAct" placeholder="id del equipo" size="28">
         <br>
         <br>
         <input type="text" name="buscar" id="numActJugador" placeholder="numero del jugador " size="28">
@@ -85,12 +112,24 @@
 
     <section id="editar_equipos_section" class="hidden">
     <h3> Editar Equipos </h3>
+    <form>
+        <input type="text" name="buscar" id="idBuscarEditarEquipo" placeholder="Buscar equipo.." size="28">
+        <button type="button" class="btn btn-primary" id="buscarBotonIdEquipo">Buscar</button>
+    </form>
+</br>
         <input type="text" name="buscar" id="nuevoNombreEquipo" placeholder="nuevo nombre del equipo " size="28">
         <input type="text" name="buscar" id="titulosNuevosLiga" placeholder="titulos de liga " size="28">
         <input type="text" name="buscar" id="titulosNuevosInternacionales" placeholder="titulos internacionales" size="28">
         <input type="text" name="buscar" id="idEquipos" placeholder="id del equipo a editar" size="28">
         <button type="button" class="btn btn-primary" id="guardarCambioEquipo">Guardar</button>
+
+    <form>
+        <br>
+        <div id="containerEquipoBuscar" class="datosEquiposBuscar"></div>
+    </form>
     </section>
+
+
 
     <section id="agregar_equipos_section" class="hidden">
     <h3> Agregar Equipos </h3>
@@ -117,7 +156,7 @@
         <div id="">
             <h4>Información</h4>
             <p class="foot">Edgar López Villarreal A01039505</p>
-            <p class="foot">Noe Flores A00949282</p>
+            <p class="foot">Noé Flores Sifuentes A00949282</p>
         </div>
     </footer>
 

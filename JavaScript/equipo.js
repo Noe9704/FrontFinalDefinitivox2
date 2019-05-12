@@ -20,7 +20,8 @@ if(localStorage.getItem('token') != null){
 
 $.ajax({
     type: "GET",
-    url: 'http://localhost:3000/consultar/equipos/',
+    url: 'https://finalwebd.herokuapp.com/consultar/equipos/',
+    //url: 'http://localhost:3000/consultar/equipos/',
     crossDomain: true,
     dataType: "json",
 
