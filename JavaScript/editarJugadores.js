@@ -267,7 +267,7 @@ var buscarIdJugador = $('#idBuscarJugador');
 var container = $('.datosJugador');
 
 $('#buscarBotonIdJugador').click(function(){
-	clearHtmlBorrar()
+	clearHtml()
 	//console.log(buscarIdJugador.val());
 	$.ajax({
 		type : "GET",
