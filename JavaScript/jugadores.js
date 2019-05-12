@@ -154,4 +154,4 @@ function clearHtml()
     //document.getElementById('personaNombre').value = "";
     document.getElementById('datos').innerHTML = "";
  
-}
+}*/
