@@ -9,6 +9,7 @@ var url_string = window.location.href
 var url = new URL(url_string);
 var id = url.searchParams.get("id");
 
+//Si se tiene el token se habilitan los botones de administrador
 let admin = ""
 let salir = ""
 if(localStorage.getItem('token') != null){
@@ -25,9 +26,7 @@ if(localStorage.getItem('token') != null){
 
 $.ajax({
     type: "GET",
-    //url: 'http://localhost:3000/consultar/equipos/'+id,
     url: 'https://finalwebd.herokuapp.com/consultar/equipos/' + id,
-    //url: 'http://localhost:3000/consultar/jugadores',
     crossDomain: true,
     dataType: "json",
 
@@ -47,9 +46,9 @@ $.ajax({
 
         console.log(nombreEquipo)
 
+        //Traer los jugadores del equipo data.nombre
         $.ajax({
             type: "GET",
-            //url: 'http://localhost:3000/consultar/jugadores/',
             url : 'https://finalwebd.herokuapp.com/consultar/jugadores',
             crossDomain: true,
             dataType: "json",
@@ -59,19 +58,11 @@ $.ajax({
 
                 for(let i=0; i<data.length; i++){
                     if(data[i].equipo == nombreEquipo){
-                        //new_html_equipo += `Nombre: ${data[i].nombre} ${data[i].apellido}<br>Numero: ${data[i].numero}<br><img width="250" height="250" src="${data[i].imagen}"><br>`
                         new_html_equipo += `<img width="250" height="250" src="${data[i].imagen}">`
                     }
                 }
                 conta.append(new_html_equipo); 
             }
         })
-
-        //new_html2 += `<img id="imagen" width="250" height="250" src="${data[i].imagen}">`
-        /*if(data[i].equipo == data[0].nombre){
-            //new_html += `<p>Nombre: ${data[i].nombre} ${data[i].apellido} <br>Numero: ${data[i].numero}</p>`
-            new_html2 += `<img id="imagen" width="250" height="250" src="${data[0].imagen}">`
-        }*/
-        //container.append(new_html2);
     }
 })

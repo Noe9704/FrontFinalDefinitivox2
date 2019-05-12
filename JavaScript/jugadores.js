@@ -9,6 +9,7 @@ var bre = $('.bre')
 var errorhtml = $('#error');
 var menu = $('menu')
 
+//Si se tiene el token se habilitan los botones de administrador
 let admin = ""
 let salir = ""
 if(localStorage.getItem('token') != null){
@@ -24,13 +25,9 @@ if(localStorage.getItem('token') != null){
 }
 
 $('#buscar').click(function(){
-	//alert($("#buscartext").val());
-	//clearHtml();
 	$.ajax({
-		//url : 'http://localhost:3000/jugador' + $(buscartext).val(),
 		type : "GET",
-		//url : 'http://localhost:3000/consultar/jugadores/', //+ $('#buscartext').val(),
-		url : 'https://finalwebd.herokuapp.com/consultar/jugadores/', //+ $('#buscartext').val(),
+		url : 'https://finalwebd.herokuapp.com/consultar/jugadores/',
 		crossDomain: true,		 
 		dataType : "json",
 
@@ -42,21 +39,6 @@ $('#buscar').click(function(){
 			let br = ""
 			var cont = 0
 			for(let i = 0; i < data.length;i++){
-				/*if(data[i].nombre == texto.val()){
-
-					//console.log(data[i].name + " " + data[i].age);
-					console.log(data.length);
-					container.append(data[i].nombre + " " + data[i].numero)
-					//img.append(data[i].img);
-					new_html += `<img id="imagen" width="250" height="250" src="${data[i].img}">`
-					img.append(new_html);
-					break;
-				}
-				else{
-					container.append("Usuario No encontrado");
-					break;
-				}*/
-
 				var flag = 0;
 				var id = 0;
 
@@ -64,76 +46,20 @@ $('#buscar').click(function(){
 
 					new_html += `<td>Nombre: ${data[i].nombre} ${data[i].apellido} <br>Numero: ${data[i].numero}<br>Equipo: <span class"equipoID" id="${data[i].equipoID}"><a href="./PorEquipo.html?id=${data[i].equipoID}">${data[i].equipo}</a></span></td>`
 					new_html2 += `<td><img width="250" height="250" src="${data[i].imagen}"></td>`
-					//new_html2+= `<span class"equipoID" id="${data[i].equipoID}"><a id="pointer"><img width="250" height="250" src="${data[i].imagen}"></a></span>`
 					console.log(data[i].equipoID)	
-					//break;
-					//new_html += `<div><span> Jugador: ${data[i].nombre} numero: ${data[i].numero}<br><img id="imagen" width="250" height="250" src="${data[i].imagen}"></span></div>`
-					//container.append("Jugador: " + data[i].nombre + " numero: " + data[i].numero)
-					//img.append(data[i].img);
-					//new_html += `<img id="imagen" width="250" height="250" src="${data[i].imagen}">`
-					
 				}
 
 				else {
-					//alert('Jugador no encontrado')
-					//errorhtml.append(error)
-					//errorhtml.append(error);
-					//break;
 					flag = 1;
-					//break;
 				}
-
-				
-
 				console.log(data.length);
-
-			//container.append(data[0].name);
 		}
-
-
-
-		/*if(flag == 1){
-			error += `<span>No se encontro al Jugador ${texto.val()}</span>`
-			nom.append(error)
-		} else {
-			new_html += `<td>Nombre: ${data[id].nombre} ${data[id].apellido} <br>Numero: ${data[id].numero}<br>Equipo: <a href= "./PorEquipo.html">${data[id].equipo}</a></td>`
-			new_html2 += `<td><img width="250" height="250" src="${data[id].imagen}"></td>`
-			nom.append(new_html);
-			ima.append(new_html2);
-		}*/
-		//clearHtml()
-
-		//img.append(new_html);
-		//br += `<td><br></td>`
-		//nom.append(error);
-
 		nom.append(new_html);
 		ima.append(new_html2);
-		//errorhtml.append(error)
-
-		
-		
-		//cont = cont + 1
-		//if(cont == 3){
-			//bre.append(br)
-		//}
-			//$.each(data,function(index,item){
-				/*
-				$.each(item, function(key,value){
-					container.append( value + '</br>');
-				});
-				container.append('<br/></br>');
-			});*/
-			clearText();
-			//clearHtml();
-
-		}/*,
-		error:function(error){
-			console.log("Falla")
-		}*/
-	
+		clearText();
+		}
 	}).done(function(response){
-		$('.equipoID').click(function(event){
+		$('.equipoID').click(function(event){ 
 		alert('hola')
 		console.log(event)
 		var id = event.currentTarget.id;
@@ -146,11 +72,4 @@ function clearText()
 {
     document.getElementById('personaNombre').value = "";
  
-}  
-/*
-function clearHtml()  
-{
-    //document.getElementById('personaNombre').value = "";
-    document.getElementById('datos').innerHTML = "";
- 
-}*/
+} 

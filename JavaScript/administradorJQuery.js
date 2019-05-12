@@ -1,3 +1,4 @@
+//Jquery para esconder secciones
 $('#menuAdmin > li').on("click", function(event){
     $(".selected").removeClass("selected");
     

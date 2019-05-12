@@ -1,3 +1,4 @@
+//Si se tiene el token se habilitan los botones de administrador
 let admin = ""
 let salir = ""
 if(localStorage.getItem('token') != null){
