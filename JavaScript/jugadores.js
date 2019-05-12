@@ -66,7 +66,6 @@ $('#buscar').click(function(){
 					new_html2 += `<td><img width="250" height="250" src="${data[i].imagen}"></td>`
 					//new_html2+= `<span class"equipoID" id="${data[i].equipoID}"><a id="pointer"><img width="250" height="250" src="${data[i].imagen}"></a></span>`
 					console.log(data[i].equipoID)	
-					flag = 0;
 					//break;
 					//new_html += `<div><span> Jugador: ${data[i].nombre} numero: ${data[i].numero}<br><img id="imagen" width="250" height="250" src="${data[i].imagen}"></span></div>`
 					//container.append("Jugador: " + data[i].nombre + " numero: " + data[i].numero)
@@ -75,8 +74,8 @@ $('#buscar').click(function(){
 					
 				}
 
-				else if(data[i].nombre != texto.val() || data[i].apellido != texto.val()){
-					error += `<h1 class="error">No se encontro al Jugador ${texto.val()}</h1>`
+				else {
+					//alert('Jugador no encontrado')
 					//errorhtml.append(error)
 					//errorhtml.append(error);
 					//break;
