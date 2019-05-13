@@ -282,7 +282,7 @@ $('#buscarBotonIdJugador').click(function(){
 			for(let i = 0; i < data.length;i++){
 
 				if(data[i].nombre == buscarIdJugador.val()){
-					new_html += `Nombre del jugador : ${data[i].nombre} ${data[i].apellido} id_:${data[i]._id}`
+					new_html += `Nombre del jugador : ${data[i].nombre} ${data[i].apellido} id: ${data[i]._id} <br>`
 				}			
 		}
 		console.log(new_html);
@@ -314,7 +314,7 @@ $('#buscarBotonIdJugadorBorrar').click(function(){
 			for(let i = 0; i < data.length;i++){
 
 				if(data[i].nombre == buscarIdJugadorBorrar.val()){
-					new_htmlBorrar += `Nombre del jugador : ${data[i].nombre} ${data[i].apellido} id_:${data[i]._id}`
+					new_htmlBorrar += `Nombre del jugador : ${data[i].nombre} ${data[i].apellido} id: ${data[i]._id} <br>`
 				}			
 		}
 		//console.log(new_htmlBorrar);
