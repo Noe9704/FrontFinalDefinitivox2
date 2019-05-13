@@ -46,7 +46,6 @@ $('#buscar').click(function(){
 		headers:{
 			'Content-Type':'application/json',
 			'Authorization': 'Bearer ' + token
-
 		},
 		success: function(data){
 			alertify.success("Jugador editado con exito");
@@ -145,6 +144,7 @@ $('#agregar').click(function(){
 			//location.reload(),
 			console.log("Entra")
 			//clearTextAgregarEquipos()
+			clearTextAgregarJugadores();
 			
 		},
 		error:function(error){
@@ -363,6 +363,36 @@ $('#buscarBotonIdEquipo').click(function(){
 });
 
 
+var buscarIdEquipoJugadores = $('#idBuscarEquipo');
+var containerIdEquipoJugadores = $('.datosEquiposVer');
+
+$('#buscarBotonIdEquipoJugador').click(function(){
+
+	clearHtmlBuscaridEquiposJugador()
+	$.ajax({
+		type : "GET",
+		//url : 'http://localhost:3000/consultar/equipos/',
+		url : 'https://finalwebd.herokuapp.com/consultar/equipos/',
+		crossDomain: true,		 
+		dataType : "json",
+		success: function(data){
+			//console.log(data);
+			let new_htmlIdEquipos = ""
+			for(let i = 0; i < data.length;i++){
+
+				if(data[i].nombre == buscarIdEquipoJugadores.val()){
+					new_htmlIdEquipos += `Nombre del equipo : ${data[i].nombre} id_:${data[i]._id}`
+				}			
+		}
+		console.log(new_htmlIdEquipos);
+		containerIdEquipoJugadores.append(new_htmlIdEquipos);
+		clearTextBuscarIdEquiposJugador()
+		},
+		error:function(error){
+			console.log("Falla")
+		}
+	});
+});
 
 
 
@@ -405,6 +435,15 @@ function clearTextAgregarEquipos(){
     document.getElementById('imagenEquipo').value = "";
 }
 
+function clearTextAgregarJugadores(){
+	document.getElementById('nombreJugador').value = "";
+    document.getElementById('apellidoJugador').value = "";
+    document.getElementById('equipoJugadorAct').value = "";
+    document.getElementById('numActJugador').value = "";
+    document.getElementById('posJugador').value = "";
+    document.getElementById('linkJugador').value = "";
+    document.getElementById('idEquipoJugadorAct').value = "";
+}
 
 function clearHtml()  
 {
@@ -433,4 +472,13 @@ function clearHtmlEquipos(){
 
 function clearTextBuscarIdEquipos(){
 	document.getElementById('idBuscarEditarEquipo').value = "";
+} 
+
+function clearHtmlBuscaridEquiposJugador(){
+    document.getElementById('containerIdEquipos').innerHTML = "";
+} 
+
+
+function clearTextBuscarIdEquiposJugador(){
+	document.getElementById('idBuscarEquipo').value = "";
 } 

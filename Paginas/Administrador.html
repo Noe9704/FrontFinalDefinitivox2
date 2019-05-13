@@ -94,6 +94,13 @@
 
     <section id="agregar_jugadores_section" class="hidden">
     <h3> Agregar Jugadores </h3>
+
+    <form>
+        <input type="text" name="buscar" id="idBuscarEquipo" placeholder="Buscar equipo.." size="28">
+        <button type="button" class="btn btn-primary" id="buscarBotonIdEquipoJugador">Buscar</button>
+    </form>
+</br>
+
         <input type="text" name="buscar" id="nombreJugador" placeholder="Nombre del jugador " size="28">
         <input type="text" name="buscar" id="apellidoJugador" placeholder="Apellido del jugador" size="28">
         <input type="text" name="buscar" id="equipoJugadorAct" placeholder="Equipo del jugador" size="28">
@@ -104,9 +111,10 @@
         <input type="text" name="buscar" id="posJugador" placeholder="Posicion del jugador" size="28">
         <input type="text" name="buscar" id="linkJugador" placeholder="Link de la imagen del jugador" size="28">
         <button type="button" class="btn btn-primary" id="agregar">Agregar</button>
-        <br>
-        <br>
-        <br>
+    <form>
+    </br>
+        <div id="containerIdEquipos" class="datosEquiposVer"></div>
+    </form>
     </section>
 
     <section id="editar_equipos_section" class="hidden">
